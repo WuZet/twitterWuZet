@@ -1,0 +1,41 @@
+group 'pl.WuZet'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        maven { url "https://repo.spring.io/libs-snapshot" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+
+jar {
+    baseName = 'gs-register-twitter-app'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-snapshot" }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:0.5.0.M2")
+    compile("org.springframework.social:spring-social-twitter:1.1.0.BUILD-SNAPSHOT")
+    compile("com.fasterxml.jackson.core:jackson-core")
+    compile("org.springframework.security:spring-security-crypto:3.1.4.RELEASE")
+    compile("org.thymeleaf:thymeleaf-spring3:2.0.16")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.4.2.RELEASE'
+    testCompile("junit:junit")
+}
+
