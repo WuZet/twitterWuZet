@@ -6,8 +6,11 @@ import org.springframework.social.twitter.api.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,9 +21,10 @@ public class TweetController {
     private Twitter twitter;
 
     @RequestMapping("/")
-    public String home(){
+    public String home() {
         return "searchPage";
     }
+
 
     @RequestMapping("/result")
     public String hello(@RequestParam(defaultValue = "SpringMvc") String search,
